@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { SocialButton } from "./social-button"
-import { Download, ChevronDown, Code2 } from "lucide-react"
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { SocialButton } from "./social-button";
+import { Download, ChevronDown, Code2 } from "lucide-react";
 
 export function HeroSection() {
   const containerVariants = {
@@ -15,7 +15,7 @@ export function HeroSection() {
         delayChildren: 0.3,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -27,7 +27,7 @@ export function HeroSection() {
         ease: "easeOut",
       },
     },
-  }
+  };
 
   const buttonVariants = {
     hidden: { opacity: 0, scale: 0.8 },
@@ -39,7 +39,7 @@ export function HeroSection() {
         ease: "easeOut",
       },
     },
-  }
+  };
 
   return (
     <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center overflow-hidden bg-slate-900">
@@ -56,7 +56,10 @@ export function HeroSection() {
         animate="visible"
         className="max-w-4xl mx-auto text-center w-full relative z-10"
       >
-        <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+        <motion.h1
+          variants={itemVariants}
+          className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6"
+        >
           Hi, I'm{" "}
           <motion.span
             className="relative text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400"
@@ -83,9 +86,16 @@ export function HeroSection() {
           </span>
         </motion.h2>
 
-        <motion.p variants={itemVariants} className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-          <span className="font-semibold text-emerald-400">Self-taught</span> web developer passionate about creating{" "}
-          <span className="font-semibold text-purple-400">innovative solutions</span> while pursuing{" "}
+        <motion.p
+          variants={itemVariants}
+          className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed"
+        >
+          <span className="font-semibold text-emerald-400">Self-taught</span>{" "}
+          web developer passionate about creating{" "}
+          <span className="font-semibold text-purple-400">
+            innovative solutions
+          </span>{" "}
+          while pursuing{" "}
           <span className="font-semibold text-blue-400">Computer Science</span>
         </motion.p>
 
@@ -93,21 +103,33 @@ export function HeroSection() {
           variants={itemVariants}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
         >
-          <motion.div variants={buttonVariants}>
-            <Button
-              size="lg"
-              className="w-full sm:w-auto group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <Download className="mr-2 h-4 w-4 group-hover:animate-bounce" />
-              Download Resume
-            </Button>
-          </motion.div>
+          {/* <motion.div variants={buttonVariants}>
+            <a href="/api/resume" target="_blank">
+              <Button
+                size="lg"
+                className="w-full sm:w-auto group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <Download className="mr-2 h-4 w-4 group-hover:animate-bounce" />
+                Download Resume
+              </Button>
+            </a>
+          </motion.div> */}
 
           <motion.div variants={buttonVariants} className="flex gap-4">
-            <SocialButton platform="github" href="https://github.com/kidushintsa" variant="outline" size="lg">
+            <SocialButton
+              platform="github"
+              href="https://github.com/kidushintsa"
+              variant="outline"
+              size="lg"
+            >
               GitHub
             </SocialButton>
-            <SocialButton platform="linkedin" href="https://linkedin.com/in/kidushintsa" variant="outline" size="lg">
+            <SocialButton
+              platform="linkedin"
+              href="https://linkedin.com/in/kidus-hintsa"
+              variant="outline"
+              size="lg"
+            >
               LinkedIn
             </SocialButton>
           </motion.div>
@@ -123,7 +145,11 @@ export function HeroSection() {
           <p className="text-sm text-gray-500 mb-2">Scroll to explore</p>
           <motion.div
             animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+            transition={{
+              duration: 2,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+            }}
             className="p-2 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20"
           >
             <ChevronDown className="h-6 w-6 text-gray-400" />
@@ -131,5 +157,5 @@ export function HeroSection() {
         </motion.div>
       </motion.div>
     </section>
-  )
+  );
 }

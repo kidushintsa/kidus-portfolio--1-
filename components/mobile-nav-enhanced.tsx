@@ -1,38 +1,38 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { SocialButton } from "./social-button"
-import { smoothScrollTo } from "@/lib/smooth-scroll"
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { SocialButton } from "./social-button";
+import { smoothScrollTo } from "@/lib/smooth-scroll";
 
 const navLinks = [
   { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" },
-]
+];
 
 export function MobileNavEnhanced() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen)
+  const toggleMenu = () => setIsOpen(!isOpen);
 
-  const closeMenu = () => setIsOpen(false)
+  const closeMenu = () => setIsOpen(false);
 
   const handleNavClick = (href: string) => {
-    smoothScrollTo(href)
-    closeMenu()
-  }
+    smoothScrollTo(href);
+    closeMenu();
+  };
 
   const menuVariants = {
     closed: {
       opacity: 0,
-      x: "100%",
+      x: 300,
       transition: {
         duration: 0.3,
-        ease: "easeInOut",
+        ease: "easeInOut" as any,
       },
     },
     open: {
@@ -40,10 +40,10 @@ export function MobileNavEnhanced() {
       x: 0,
       transition: {
         duration: 0.3,
-        ease: "easeInOut",
+        ease: "easeInOut" as any,
       },
     },
-  }
+  };
 
   const linkVariants = {
     closed: {
@@ -56,10 +56,10 @@ export function MobileNavEnhanced() {
       transition: {
         delay: 0.1 + i * 0.1,
         duration: 0.3,
-        ease: "easeOut",
+        ease: "easeOut" as any,
       },
     }),
-  }
+  };
 
   const socialVariants = {
     closed: {
@@ -72,10 +72,10 @@ export function MobileNavEnhanced() {
       transition: {
         delay: 0.5,
         duration: 0.3,
-        ease: "easeOut",
+        ease: "easeOut" as any,
       },
     },
-  }
+  };
 
   return (
     <>
@@ -87,7 +87,10 @@ export function MobileNavEnhanced() {
         onClick={toggleMenu}
         aria-label="Toggle menu"
       >
-        <motion.div animate={isOpen ? "open" : "closed"} className="flex items-center justify-center">
+        <motion.div
+          animate={isOpen ? "open" : "closed"}
+          className="flex items-center justify-center"
+        >
           <motion.div
             variants={{
               closed: { rotate: 0, opacity: 1 },
@@ -170,16 +173,24 @@ export function MobileNavEnhanced() {
                   className="flex flex-col items-center space-y-4"
                 >
                   <div className="flex space-x-4">
-                    <SocialButton platform="github" href="https://github.com/kidushintsa" variant="outline">
+                    <SocialButton
+                      platform="github"
+                      href="https://github.com/kidushintsa"
+                      variant="outline"
+                    >
                       GitHub
                     </SocialButton>
-                    <SocialButton platform="linkedin" href="https://linkedin.com/in/kidushintsa" variant="outline">
+                    <SocialButton
+                      platform="linkedin"
+                      href="https://linkedin.com/in/kidus-hintsa"
+                      variant="outline"
+                    >
                       LinkedIn
                     </SocialButton>
                   </div>
 
                   {/* Resume Button */}
-                  <Button className="mt-4 shadow-lg">Download Resume</Button>
+                  {/* <Button className="mt-4 shadow-lg">Download Resume</Button> */}
                 </motion.div>
               </div>
 
@@ -199,5 +210,5 @@ export function MobileNavEnhanced() {
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }

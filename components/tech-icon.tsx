@@ -1,8 +1,8 @@
-import Image from "next/image"
+import Image from "next/image";
 
 interface TechIconProps {
-  name: string
-  className?: string
+  name: string;
+  className?: string;
 }
 
 const techConfig = {
@@ -38,22 +38,27 @@ const techConfig = {
   "Framer Motion": { color: "#0055FF", bgColor: "#fff" },
   "RAWG API": { color: "#FF6B35", bgColor: "#fff" },
   "Chapa API": { color: "#00C851", bgColor: "#fff" },
-}
+};
 
 export function TechIcon({ name, className = "" }: TechIconProps) {
-  const config = techConfig[name as keyof typeof techConfig] || { color: "#6B7280", bgColor: "#fff" }
+  const config = techConfig[name as keyof typeof techConfig] || {
+    color: "#6B7280",
+    bgColor: "#fff",
+  };
 
   // Create a safe filename for the placeholder
   const safeFileName = name
     .toLowerCase()
     .replace(/[^a-z0-9]/g, "-")
-    .replace(/-+/g, "-")
+    .replace(/-+/g, "-");
 
   return (
-    <div className={`flex flex-col items-center gap-2 p-3 rounded-lg hover:bg-gray-50 transition-colors ${className}`}>
+    <div
+      className={`flex flex-col items-center gap-2 p-3 rounded-lg hover:bg-gray-50 transition-colors ${className}`}
+    >
       <div className="relative w-12 h-12 flex items-center justify-center">
         <Image
-          src={`/placeholder.svg?height=48&width=48&text=${name.charAt(0)}`}
+          src={`/techImg/tailwind.JPG`}
           alt={`${name} logo`}
           width={48}
           height={48}
@@ -65,5 +70,5 @@ export function TechIcon({ name, className = "" }: TechIconProps) {
         />
       </div>
     </div>
-  )
+  );
 }
