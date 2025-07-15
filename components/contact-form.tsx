@@ -27,14 +27,14 @@ export function ContactForm() {
 
     try {
       const result = await emailjs.send(
-        "service_5rtq4pd", // ✅ Replace with your EmailJS Service ID
-        "template_s9lqup9", // ✅ Replace with your Template ID
+        process.env.NEXT_PUBLIC_SERVICE_ID!, // ✅ Replace with your EmailJS Service ID
+        process.env.NEXT_PUBLIC_TEMPLATE_ID!, // ✅ Replace with your Template ID
         {
           name: formData.name,
           email: formData.email,
           message: formData.message,
         },
-        "ptnNFOPeh6OG6CSL0" // ✅ Replace with your EmailJS Public Key
+        process.env.NEXT_PUBLIC_EMAILJS_ID! // ✅ Replace with your EmailJS Public Key
       );
 
       setStatus("success");
