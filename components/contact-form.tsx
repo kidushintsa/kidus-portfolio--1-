@@ -1,55 +1,60 @@
-"use client"
+"use client";
 
-import type React from "react"
+// import type React from "react";
+import emailjs from "@emailjs/browser"; // ← Add this
 
-import { useState } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Button } from "@/components/ui/button"
-import { Mail, Send, CheckCircle, AlertCircle } from "lucide-react"
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Mail, Send, CheckCircle, AlertCircle } from "lucide-react";
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-  })
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
-  const [statusMessage, setStatusMessage] = useState("")
+  });
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [statusMessage, setStatusMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setStatus("loading")
+    e.preventDefault();
+    setStatus("loading");
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const result = await emailjs.send(
+        "service_5rtq4pd", // ✅ Replace with your EmailJS Service ID
+        "template_s9lqup9", // ✅ Replace with your Template ID
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
         },
-        body: JSON.stringify(formData),
-      })
+        "ptnNFOPeh6OG6CSL0" // ✅ Replace with your EmailJS Public Key
+      );
 
-      if (response.ok) {
-        setStatus("success")
-        setStatusMessage("Thank you! Your message has been sent successfully.")
-        setFormData({ name: "", email: "", message: "" })
-      } else {
-        throw new Error("Failed to send message")
-      }
+      setStatus("success");
+      setStatusMessage("Your message has been sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      setStatus("error")
-      setStatusMessage("Sorry, there was an error sending your message. Please try again.")
+      console.error(error);
+      setStatus("error");
+      setStatusMessage("Failed to send message. Please try again later.");
     }
-  }
+  };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
-    }))
-  }
+    }));
+  };
 
   return (
     <Card className="bg-slate-800/80 backdrop-blur-sm border-slate-700">
@@ -63,7 +68,10 @@ export function ContactForm() {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-2">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-200 mb-2"
+              >
                 Name
               </label>
               <Input
@@ -77,7 +85,10 @@ export function ContactForm() {
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-2">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-200 mb-2"
+              >
                 Email
               </label>
               <Input
@@ -93,7 +104,10 @@ export function ContactForm() {
             </div>
           </div>
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-200 mb-2">
+            <label
+              htmlFor="message"
+              className="block text-sm font-medium text-gray-200 mb-2"
+            >
               Message
             </label>
             <Textarea
@@ -114,8 +128,8 @@ export function ContactForm() {
                 status === "success"
                   ? "bg-green-500/20 text-green-400 border border-green-500/30"
                   : status === "error"
-                    ? "bg-red-500/20 text-red-400 border border-red-500/30"
-                    : "bg-blue-500/20 text-blue-400 border border-blue-500/30"
+                  ? "bg-red-500/20 text-red-400 border border-red-500/30"
+                  : "bg-blue-500/20 text-blue-400 border border-blue-500/30"
               }`}
             >
               {status === "success" && <CheckCircle className="h-4 w-4" />}
@@ -145,5 +159,5 @@ export function ContactForm() {
         </form>
       </CardContent>
     </Card>
-  )
+  );
 }
