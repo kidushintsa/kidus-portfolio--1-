@@ -24,7 +24,7 @@ export function HeroSection() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: "easeOut" as any,
       },
     },
   };
@@ -36,7 +36,7 @@ export function HeroSection() {
       scale: 1,
       transition: {
         duration: 0.5,
-        ease: "easeOut",
+        ease: "easeOut" as any,
       },
     },
   };
