@@ -32,7 +32,7 @@ const skillCategories = [
     title: "Backend & Tools",
     skills: [
       { name: "Node.js", logo: "/techImg/nj.JPG" },
-      { name: "Express.js", logo: "/techImg/eJ.JPG" },
+      { name: "Express.js", logo: "/techImg/ej.JPG" },
       { name: "Docker", logo: "/techImg/docker.JPG" },
       { name: "Git/GitHub", logo: "/techImg/git.JPG" },
       { name: "Firebase", logo: "/techImg/fb.JPG" },
