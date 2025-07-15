@@ -147,8 +147,8 @@ button,
 /* Dark gradient borders */
 .gradient-border {
   position: relative;
-  background: linear-gradient(rgb(15, 23, 42), rgb(15, 23, 42)) padding-box, linear-gradient(135deg, #3b82f6, #8b5cf6)
-    border-box;
+  background: linear-gradient(rgb(15, 23, 42), rgb(15, 23, 42)) padding-box,
+    linear-gradient(135deg, #3b82f6, #8b5cf6) border-box;
   border: 2px solid transparent;
 }
 
