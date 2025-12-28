@@ -36,6 +36,7 @@ const skillCategories = [
       { name: "Docker", logo: "/techImg/docker.JPG" },
       { name: "Git/GitHub", logo: "/techImg/git.JPG" },
       { name: "Firebase", logo: "/techImg/fb.JPG" },
+      { name: "Supabase", logo: "/techImg/supabase.JPG" },
     ],
   },
   {
