@@ -35,6 +35,25 @@ const projects = [
     liveUrl: "https://game-discovery-app-r13w.vercel.app/",
     featured: true,
   },
+  {
+    title: "Sabisa Opportunity Finder",
+    description:
+      "Backend-driven opportunity finder platform that helps users discover jobs, scholarships, internships, and other opportunities with secure APIs and scalable architecture.",
+    image: "/techImg/sabisa.png",
+    technologies: [
+      "NestJS/Node.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Docker",
+      "Gemini API"
+      "Swagger API documentation",
+      "JWT Authentication",
+      "Passport.js"
+    ],
+    repoUrl: "https://github.com/brana-software-solution/sabisa-backend",
+    liveUrl: "https://sabisa.app/",
+    featured: true,
+  },
 ];
 
 export default function Home() {
