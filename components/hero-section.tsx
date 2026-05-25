@@ -90,13 +90,13 @@ export function HeroSection() {
           variants={itemVariants}
           className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed"
         >
-          <span className="font-semibold text-emerald-400">Self-taught</span>{" "}
-          web developer passionate about creating{" "}
+          <span className="font-semibold text-emerald-400">Computer Science Graduate</span>{" "}
+          & Full-Stack Developer{" "}
           <span className="font-semibold text-purple-400">
-            innovative solutions
+            passionate about creating
           </span>{" "}
-          while pursuing{" "}
-          <span className="font-semibold text-blue-400">Computer Science</span>
+          
+          <span className="font-semibold text-blue-400">innovative digital solutions.</span>
         </motion.p>
 
         <motion.div
