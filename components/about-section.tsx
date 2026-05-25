@@ -30,16 +30,14 @@ export function AboutSection() {
                   <Heart className="h-4 w-4 text-emerald-400" />
                 </div>
                 <p>
-                  I'm a passionate{" "}
+                 I'm a full-stack developer and recent Computer Science graduate. What started as curiosity-driven{" "}
                   <span className="font-semibold text-emerald-400">
-                    self-taught
+                    self-teaching
                   </span>{" "}
-                  full-stack developer currently pursuing Computer Science at
-                  university. My journey in web development started with
-                  curiosity and has evolved into a deep love for creating
+                 has evolved into a passion for building innovative digital solutions. I thrive on bridging the gap between robust backend architecture and.
                   <span className="font-semibold text-purple-400">
                     {" "}
-                    innovative digital solutions
+                    seamless user experiences
                   </span>
                   .
                 </p>
