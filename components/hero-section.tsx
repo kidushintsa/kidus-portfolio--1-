@@ -91,11 +91,9 @@ export function HeroSection() {
           className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed"
         >
           <span className="font-semibold text-emerald-400">Computer Science Graduate</span>{" "}
-          & Full-Stack Developer{" "}
-          <span className="font-semibold text-purple-400">
+          & <span className="font-semibold text-purple-400">Full-Stack Developer</span>
+          {" "}
             passionate about creating
-          </span>{" "}
-          
           <span className="font-semibold text-blue-400">innovative digital solutions.</span>
         </motion.p>
 
